@@ -1,0 +1,20 @@
+config:
+  target: "http://ekko-ekkos-1JK7FBDLWD4G0-283235194.us-east-2.elb.amazonaws.com/helloworld"
+  phases:
+    - duration: 10
+      arrivalRate: 1
+  engines:
+    socketio-v3: {}
+  socketio:
+    auth:
+      jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiYXBwTmFtZSI6ImhlbGxvd29ybGQiLCJpYXQiOjE2MTk3MzgxMTF9.dy146IBB6cgmsIi24feOKpsZCfY2iMrh-BxExz5GDls"
+      uuid: "hacker"
+scenarios:
+  - name: ekko Test
+    engine: socketio-v3
+    flow:
+      - emit:
+          [
+            "publish",
+            { channel: "greeting", message: { text: "hi" }, uuid: "none" },
+          ]
