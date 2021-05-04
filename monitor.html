@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <script src="https://d3irfuxwybyrt2.cloudfront.net/ekko-client-v2.2.6.js"></script>
+    <script>
+      const ekko = new Ekko({
+        host:
+          "http://ekko-ekkos-DXOLAZG8XB-14233476.us-east-2.elb.amazonaws.com",
+        jwt:
+          "yJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiYXBwTmFtZSI6ImxvYWQtdGVzdGluZyIsImlhdCI6MTYyMDE1MDkxNH0.LMTnDVH4829j_slzDjcfzxmsUO2alzP2l_nbY_E9CMs",
+        appName: "load-testing",
+      });
+
+      ekko.subscribe({ channels: ["load-test"] });
+
+      ekko.addListener({
+        message: (e) => {
+          console.log(e);
+        },
+      });
+    </script>
+  </body>
+</html>
