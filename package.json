@@ -5,10 +5,28 @@
   "scripts": {
     "load": "artillery run config.yml"
   },
-  "author": "",
   "license": "MIT",
   "devDependencies": {
     "artillery": "^1.7.2",
     "artillery-engine-socketio-v3": "^1.0.1"
-  }
+  },
+  "author": "ekko",
+  "contributors": [
+    {
+      "name": "Alex Strick van Linschoten",
+      "github": "<https://github.com/strickvl>"
+    },
+    {
+      "name": "Dorey Miller",
+      "github": "<https://github.com/doreymiller>"
+    },
+    {
+      "name": "Drew Holbrook",
+      "github": "<https://github.com/dpholbrook>"
+    },
+    {
+      "name": "Will Lotherington",
+      "github": "<https://github.com/wLotherington>"
+    }
+  ]
 }
