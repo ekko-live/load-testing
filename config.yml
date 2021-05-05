@@ -1,7 +1,7 @@
 config:
   target: "http://ekko-ekkos-1JWA751RZNMEI-1720933133.us-west-1.elb.amazonaws.com"
   phases:
-    - duration: 200
+    - duration: 600
       arrivalRate: 25
   engines:
     socketio-v3: {}
