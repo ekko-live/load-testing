@@ -8,8 +8,7 @@ config:
   socketio:
     transports: ["websocket"]
     auth:
-      jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiYXBwTmFtZSI6ImxvYWQtdGVzdGluZyIsImlhdCI6MTYyMDE4NDcwOX0.T2MaOl0BOa34HSWCOKRdG3OSAvRDIPgGIzZieItBSlQ"
-      uuid: "load-tester"
+      jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6ZmFsc2UsImFwcE5hbWUiOiJsb2FkLXRlc3RpbmciLCJpYXQiOjE2MjAxODU4Mzh9.efk6CoAJbbqQtYbX_BvZ0txHagIaNFjvyHPhbGhHZi4"
 scenarios:
   - name: ekko Test
     engine: socketio-v3
