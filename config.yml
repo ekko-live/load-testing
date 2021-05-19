@@ -1,8 +1,8 @@
 config:
   target: "http://ekko-ekkos-1JWA751RZNMEI-1720933133.us-west-1.elb.amazonaws.com"
   phases:
-    - duration: 1250
-      arrivalRate: 10
+    - duration: 200
+      arrivalRate: 25
   engines:
     socketio-v3: {}
   socketio:
@@ -13,4 +13,4 @@ scenarios:
   - name: ekko Test
     engine: socketio-v3
     flow:
-      - think: 1250
+      - think: 200
