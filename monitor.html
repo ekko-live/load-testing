@@ -3,13 +3,12 @@
     <script src="https://d3irfuxwybyrt2.cloudfront.net/ekko-client-v2.2.6.js"></script>
     <script>
       const ekko = new Ekko({
-        host:
-          "http://ekko-ekkos-1JWA751RZNMEI-1720933133.us-west-1.elb.amazonaws.com",
-        jwt:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6ZmFsc2UsImFwcE5hbWUiOiJsb2FkLXRlc3RpbmciLCJpYXQiOjE2MjAxODU4Mzh9.efk6CoAJbbqQtYbX_BvZ0txHagIaNFjvyHPhbGhHZi4",
+        host: "http://ekko-ekkos-T56QXUWSORKN-964893551.us-east-2.elb.amazonaws.com",
+        jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiYXBwTmFtZSI6ImxvYWR0ZXN0IiwiaWF0IjoxNjIxNDgwNDc3fQ.JlYYcvZ-_GI7r6lwFvDpCTzBI7aI-BoAZUE-EavUJXs",
+        appName: "loadtest",
       });
 
-      ekko.subscribe({ channels: ["load-test"] });
+      ekko.subscribe({ channels: ["greeting"] });
 
       ekko.addListener({
         message: (e) => {
@@ -19,6 +18,10 @@
           console.log(e);
         },
       });
+
+      // setInterval(() => {
+      //   console.log("hi");
+      // }, 2000);
     </script>
   </body>
 </html>

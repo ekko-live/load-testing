@@ -1,5 +1,5 @@
 config:
-  target: "http://ekko-ekkos-T56QXUWSORKN-964893551.us-east-2.elb.amazonaws.com"
+  target: "http://ekko-ekkos-T56QXUWSORKN-964893551.us-east-2.elb.amazonaws.com/loadtest"
   phases:
     - duration: 10
       arrivalRate: 1
@@ -9,8 +9,14 @@ config:
     transports: ["websocket"]
     auth:
       jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6ZmFsc2UsImFwcE5hbWUiOiJsb2FkdGVzdCIsImlhdCI6MTYyMTQ4MDE0Mn0.E6zZGs0Xw7s-MhfmFg1F73RHDvbXoZ5E4xoTANASu1s"
+      uuid: "hi"
 scenarios:
   - name: ekko Test
     engine: socketio-v3
     flow:
+      - emit:
+          [
+            "publish",
+            { channel: "greeting", message: { text: "hi" }, uuid: "none" },
+          ]
       - think: 10

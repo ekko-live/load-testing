@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "load": "artillery run config.yml"
+    "load": "artillery run config.yml",
+    "pub": "artillery run config_pub.yml"
   },
   "license": "MIT",
   "devDependencies": {
