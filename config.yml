@@ -1,5 +1,5 @@
 config:
-  target: "http://ekko-ekkos-T56QXUWSORKN-964893551.us-east-2.elb.amazonaws.com"
+  target: "http://ekko-ekkos-YK9SB7GQBXVU-1280264013.us-east-2.elb.amazonaws.com"
   phases:
     - duration: 10
       arrivalRate: 1
@@ -8,7 +8,7 @@ config:
   socketio:
     transports: ["websocket"]
     auth:
-      jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6ZmFsc2UsImFwcE5hbWUiOiJsb2FkdGVzdCIsImlhdCI6MTYyMTQ4MDE0Mn0.E6zZGs0Xw7s-MhfmFg1F73RHDvbXoZ5E4xoTANASu1s"
+      jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiYXBwTmFtZSI6ImxvYWR0ZXN0IiwiaWF0IjoxNjIxNTU2MTM2fQ.TFcvBGww4qgg04snU59En9pJEESD2otToqkdASn-FZg"
 scenarios:
   - name: ekko Test
     engine: socketio-v3
