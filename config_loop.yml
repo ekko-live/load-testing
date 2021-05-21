@@ -12,66 +12,21 @@ config:
       jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiYXBwTmFtZSI6ImxvYWR0ZXN0IiwiaWF0IjoxNjIxNTU2MTM2fQ.TFcvBGww4qgg04snU59En9pJEESD2otToqkdASn-FZg"
       uuid: "hi"
   phases:
-    - duration: 10
+    - duration: 100
       arrivalRate: 1
-    - duration: 10
-      arrivalRate: 5
-  variables:
-    greeting:
-      ["hello", "goedemorgen", "добрый день", "guten tag", "bonjour", "hola"]
-  processor: "./functions.js"
 
 scenarios:
-  - name: "A user that just lurks"
-    weight: 75
+  - name: A chatty user
     engine: socketio-v3
     flow:
-      - get:
-          url: "/"
-      - emit:
-        [
-          "subscribe", {channels: ["greeting"], uuid: "lurker-{{ $randomString() }}"}
-        ]
-      - think: 60
-
-  - name: "A mostly quiet user"
-    weight: 15
-    engine: socketio-v3
-    flow:
-      - get:
-          url: "/"
-      - emit:
-        [
-          "subscribe", {channels: ["greeting"], uuid: "quiet-{{ $randomString() }}"}
-        ]
+      - emit: ["subscribe", { channels: ["greeting"], uuid: "nobody" }]
       - think: 5
-      - emit:
-        [
-          "publish", {channel: "greeting", message: {text: "{{ greeting }}"}}
-        ]
-      - think: 60
-
-  - name: "A chatty user"
-    weight: 10
-    engine: socketio-v3
-    flow:
-      - get:
-          url: "/"
-      - emit:
-          [
-          "subscribe", {channels: ["greeting"], uuid: "chatty-{{ $randomString() }}"}
-          ]
-      - think: 5
-      - emit:
-          [
-            "publish", {channel: "greeting", message: {text: "{{ greeting }}"}, uuid: "chatty-{{ $randomString() }}"}
-          ]
       - loop:
-          - function: "setMessage"
           - emit:
               [
-                "publish", {channel: "greeting", message: {text: "{{ message }}"}}
+                "publish",
+                { channel: "greeting", message: { text: "my message" } },
               ]
           - think: 10
         count: 10
-      - think: 60
+      - think: 100

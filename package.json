@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "load": "artillery run config.yml",
-    "pub": "artillery run config_pub.yml"
+    "pub": "artillery run config_pub.yml",
+    "loop": "artillery run config_loop.yml"
   },
   "license": "MIT",
   "devDependencies": {
