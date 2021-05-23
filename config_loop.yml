@@ -20,13 +20,13 @@ scenarios:
     engine: socketio-v3
     flow:
       # - emit: ["subscribe", { channels: ["greeting"], uuid: "nobody" }]
-      - think: 1
+      - think: 100
       - loop:
           - emit:
               [
                 "publish",
                 { channel: "greeting", message: { text: "my message" } },
               ]
-          - think: 60
+          - think: 10
         count: 10
       - think: 5
