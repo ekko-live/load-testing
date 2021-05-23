@@ -12,8 +12,8 @@ config:
       jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6ZmFsc2UsImFwcE5hbWUiOiJsb2FkdGVzdCIsImlhdCI6MTYyMTYzNDIwNX0.B-Uv1ETUw3xvYF74PPrvfUTFcHoktfpHerGefniOaqQ"
       uuid: "hi"
   phases:
-    - duration: 10
-      arrivalRate: 1
+    - duration: 100
+      arrivalRate: 25
 
 scenarios:
   - name: An IoT Device
@@ -27,6 +27,6 @@ scenarios:
                 "publish",
                 { channel: "greeting", message: { text: "my message" } },
               ]
-          - think: 1
-        count: 1
+          - think: 60
+        count: 10
       - think: 5
