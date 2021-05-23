@@ -13,20 +13,20 @@ config:
       uuid: "hi"
   phases:
     - duration: 100
-      arrivalRate: 1
+      arrivalRate: 25
 
 scenarios:
   - name: An IoT Device
     engine: socketio-v3
     flow:
       # - emit: ["subscribe", { channels: ["greeting"], uuid: "nobody" }]
-      - think: 1
+      - think: 100
       - loop:
           - emit:
               [
                 "publish",
                 { channel: "greeting", message: { text: "my message" } },
               ]
-          - think: 1
+          - think: 10
         count: 10
       - think: 1
