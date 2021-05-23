@@ -12,14 +12,14 @@ config:
       jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6ZmFsc2UsImFwcE5hbWUiOiJsb2FkdGVzdCIsImlhdCI6MTYyMTYzNDIwNX0.B-Uv1ETUw3xvYF74PPrvfUTFcHoktfpHerGefniOaqQ"
       uuid: "hi"
   phases:
-    - duration: 300
+    - duration: 10
       arrivalRate: 1
 
 scenarios:
-  - name: A chatty user
+  - name: An IoT Device
     engine: socketio-v3
     flow:
-      - emit: ["subscribe", { channels: ["greeting"], uuid: "nobody" }]
+      # - emit: ["subscribe", { channels: ["greeting"], uuid: "nobody" }]
       - think: 1
       - loop:
           - emit:
@@ -28,5 +28,5 @@ scenarios:
                 { channel: "greeting", message: { text: "my message" } },
               ]
           - think: 1
-        count: 10
-      - think: 300
+        count: 1
+      - think: 5
