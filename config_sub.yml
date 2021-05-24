@@ -13,7 +13,7 @@ config:
       uuid: "hi"
   phases:
     - duration: 400
-      arrivalRate: 20
+      arrivalRate: 10
 
 scenarios:
   - name: subscriber

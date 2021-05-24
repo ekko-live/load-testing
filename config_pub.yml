@@ -23,5 +23,5 @@ scenarios:
                 { channel: "greeting", message: { text: "my message" } },
               ]
           - think: 1
-        count: 100
+        count: 300
       - think: 1
