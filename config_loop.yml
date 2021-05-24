@@ -13,7 +13,7 @@ config:
       uuid: "hi"
   phases:
     - duration: 100
-      arrivalRate: 20
+      arrivalRate: 25
 
 scenarios:
   - name: An IoT Device
