@@ -15,7 +15,7 @@ scenarios:
     engine: socketio-v3
     flow:
       # - emit: ["subscribe", { channels: ["greeting"], uuid: "nobody" }]
-      - think: 120
+      # - think: 120
       - loop:
           - emit:
               [
