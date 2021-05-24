@@ -29,4 +29,4 @@ scenarios:
       #         ]
       #     - think: 60
       #   count: 10
-      - think: 400
+      - think: 150
