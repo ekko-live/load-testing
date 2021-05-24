@@ -1,22 +1,27 @@
 config:
-  target: "http://ekko-ekkos-YK9SB7GQBXVU-1280264013.us-east-2.elb.amazonaws.com/loadtest"
+  target: "http://ekko-ekkos-1QZ0F5RQERLFR-1436539638.us-east-1.elb.amazonaws.com/loadtest"
   phases:
-    - duration: 10
+    - duration: 1
       arrivalRate: 1
   engines:
     socketio-v3: {}
   socketio:
     transports: ["websocket"]
     auth:
-      jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiYXBwTmFtZSI6ImxvYWR0ZXN0IiwiaWF0IjoxNjIxNTU2MTM2fQ.TFcvBGww4qgg04snU59En9pJEESD2otToqkdASn-FZg"
+      jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6ZmFsc2UsImFwcE5hbWUiOiJsb2FkdGVzdCIsImlhdCI6MTYyMTYzNDIwNX0.B-Uv1ETUw3xvYF74PPrvfUTFcHoktfpHerGefniOaqQ"
       uuid: "hi"
 scenarios:
-  - name: ekko Test
+  - name: An IoT Device
     engine: socketio-v3
     flow:
-      - emit:
-          [
-            "publish",
-            { channel: "greeting", message: { text: "hi" }, uuid: "none" },
-          ]
-      - think: 10
+      # - emit: ["subscribe", { channels: ["greeting"], uuid: "nobody" }]
+      - think: 120
+      - loop:
+          - emit:
+              [
+                "publish",
+                { channel: "greeting", message: { text: "my message" } },
+              ]
+          - think: 1
+        count: 250
+      - think: 1
