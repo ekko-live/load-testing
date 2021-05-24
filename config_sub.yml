@@ -1,8 +1,9 @@
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
 config:
   target: "http://ekko-ekkos-1XLES732DWZDL-738214756.us-east-2.elb.amazonaws.com/loadtest"
-  phases:
-    - duration: 1
-      arrivalRate: 1
   engines:
     socketio-v3: {}
   socketio:
@@ -10,18 +11,13 @@ config:
     auth:
       jwt: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZSwiYXBwTmFtZSI6ImxvYWR0ZXN0IiwiaWF0IjoxNjIxNjM3NTE4fQ.ekb_asb5BXhMOlCcFM0yyRC2qAcvBn3K-0yMHsjHIvc"
       uuid: "hi"
+  phases:
+    - duration: 50
+      arrivalRate: 20
+
 scenarios:
-  - name: A publisher
+  - name: subscriber
     engine: socketio-v3
     flow:
-      # - emit: ["subscribe", { channels: ["greeting"], uuid: "nobody" }]
-      - think: 50
-      - loop:
-          - emit:
-              [
-                "publish",
-                { channel: "greeting", message: { text: "my message" } },
-              ]
-          - think: 1
-        count: 100
-      - think: 1
+      - emit: ["subscribe", { channels: ["greeting"], uuid: "nobody" }]
+      - think: 200

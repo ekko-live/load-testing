@@ -5,7 +5,8 @@
   "scripts": {
     "load": "artillery run config.yml",
     "pub": "artillery run config_pub.yml",
-    "loop": "artillery run config_loop.yml"
+    "loop": "artillery run config_loop.yml",
+    "sub": "artillery run config_sub.yml"
   },
   "license": "MIT",
   "devDependencies": {
